@@ -1,0 +1,99 @@
+// Coded in Stylus: http://learnboost.github.com/stylus/
+
+// ====================================
+// Imports
+
+// Reset: http://necolas.github.com/normalize.css/
+@import '/vendor/normalize.css'
+
+// nib: http://visionmedia.github.com/nib/
+@import 'nib'
+@import 'typography.css'
+
+// ====================================
+// Styles
+
+accent1 = #86008F
+accent2 = #CA008F
+accent3 = #FF0090
+text_color = #eee
+bg_color = #111
+
+page_width = 960px
+
+body
+	background-color bg_color
+	background-image url('/img/lines-bg.png')
+	color text_color
+
+p, div, li
+	color text_color
+
+h1,h4,h5
+	color accent3
+h2,h5
+	color accent2
+h3,h6
+	color accent3
+a
+	color accent1
+a:hover
+	color accent2
+a:visited
+	color accent1
+
+section[role="main"], header, footer
+	width page_width
+	margin auto
+
+header:before
+		content url('/img/logo.png')
+		margin-left -200px
+		float left
+
+header
+	h1
+		font-size 36pt
+		color hsla(0, 100%, 100%, 0.2)
+		text-shadow: 0px -1px 0px hsla(0, 100%, 100%, 0.7),0px 1px 0px rgba(0, 0, 0, 0.3);
+		text-rendering optimizelegibility
+
+	h1:before
+		content 'Introducing'
+		display block
+		font-size 30%
+		font-style italic
+		
+	h1:after
+		content 'Reactive JavaScript'
+		font-size 50%
+		font-style italic
+		margin-left -1em
+		position relative
+		bottom -1em
+
+nav
+	ol
+		display table
+		padding 0
+    	li
+    		display table-cell
+    		a 
+    			margin 0 12px
+    			padding 6px 12px
+    			font-size 14pt
+    			border 1px solid transparent
+    			border-radius 5px
+
+    		a:hover
+    			border 1px solid rgba(255,255,255,0.3)
+    	li:first-child a
+    		border 1px solid rgba(255,255,255,0.1)
+    		border-radius 5px
+
+ pre
+ 	border-radius 10px
+ 	background-color black
+ 	margin 1em 0
+ 	padding 1em
+ 	font-size 14pt
