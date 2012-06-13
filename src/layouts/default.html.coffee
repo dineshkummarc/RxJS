@@ -10,7 +10,7 @@ html lang: 'en', ->
 		meta 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1'
 		meta 'http-equiv': 'content-type', content: 'text/html; charset=utf-8'
 		meta name: 'viewport', content: 'width=device-width, initial-scale=1'
-		text @blocks.meta.join('')
+		# text @blocks.meta.join('')
 
 		# Document
 		title @document.title
@@ -18,24 +18,29 @@ html lang: 'en', ->
 		meta name: 'author', content: @document.author or ''
 
 		# Styles
-		text @blocks.styles.join('')
+		# text @blocks.styles.join('')
 		link rel: 'stylesheet', href: '/styles/style.css', media: 'screen, projection'
 		link rel: 'stylesheet', href: '/styles/print.css', media: 'print'
+
+		style type: 'text/css', "nav ol li:nth-child(#{@document.menu}) a { border: 1px solid rgba(255,255,255,0.1); }"
+
 	body ->
 
 		header ->
 			h1 'RxJS'
+
 			nav ->
 				ol ->
 					li ->
-						a href: '#', title: 'about', 'about'
+						a href: 'index.html', title: 'about', 'about'
 					li ->
-						a href: '#', title: 'tutorial', 'tutorial'
+						a href: 'tutorial.html', title: 'try it', 'try it'
 					li ->
-						a href: '#', title: 'download', 'download'
+						a href: 'download.html', title: 'download', 'download'
 					li ->
-						a href: '#', title: 'community', 'community'
-
+						a href: 'bindings.html', title: 'bindings', 'bindings'
+					li ->
+						a href: 'community.html', title: 'community', 'community'
 
 		section role: 'main', ->
 
@@ -45,9 +50,14 @@ html lang: 'en', ->
 		footer ->
 
 		# Scripts
-		text @blocks.scripts.join('')
+		# text @blocks.scripts.join('')
 		script src: '/vendor/jquery-1.7.1.js'
 		script src: '/vendor/modernizr-2.0.6.js'
 		script src: '/vendor/underscore-1.2.3.js'
 		script src: '/vendor/backbone-0.5.3.js'
+
+		for src in @document.scripts || []
+			do (s) ->
+				script src: src + '.js' 
+		
 		script src: '/scripts/script.js'

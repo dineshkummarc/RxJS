@@ -1,6 +1,7 @@
 ---
 title: 'RxJS'
 layout: 'default'
+menu: 1
 ---
 
 # What is RxJS?
